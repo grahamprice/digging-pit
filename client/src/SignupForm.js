@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const SignupForm = ({ setCurrentUser }) => {
+const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -28,6 +28,7 @@ const SignupForm = ({ setCurrentUser }) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
+          setIsLoggedIn(true);
         });
       } else {
         res.json().then((errors) => {
@@ -42,7 +43,7 @@ const SignupForm = ({ setCurrentUser }) => {
       <label htmlFor="first-name">First Name:</label>
       <input
         id="first-name-signup-input"
-        type="first-name"
+        type="text"
         name="first-name"
         value={formData.first_name}
         onChange={handleChange}
@@ -50,7 +51,7 @@ const SignupForm = ({ setCurrentUser }) => {
       <label htmlFor="last-name">Last Name:</label>
       <input
         id="last-name-signup-input"
-        type="last-name"
+        type="text"
         name="last-name"
         value={formData.last_name}
         onChange={handleChange}

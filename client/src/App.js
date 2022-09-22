@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
-import NavBar from "./NavBar";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -22,6 +22,9 @@ function App() {
   }, []);
 
   const history = { useHistory };
+
+  console.log(currentUser);
+
   const handleLogout = () => {
     fetch("/logout", { method: "DELETE" }).then((res) => {
       if (res.ok) {
@@ -31,14 +34,14 @@ function App() {
       }
     });
   };
+
   return (
     <BrowserRouter>
       <NavBar handleLogout={handleLogout} isLoggedIn={isLoggedIn} />
+
       <div className="App">
         <Switch>
-          <Route exact path="/">
-            <h1>Home</h1>
-          </Route>
+          <Route exact path="/"></Route>
           <Route path="/login">
             <LoginForm
               // isLoggedIn={isLoggedIn}
@@ -46,11 +49,12 @@ function App() {
               setCurrentUser={setCurrentUser}
               handleLogout={handleLogout}
             />
-            <h1>It's All Happening</h1>
           </Route>
           <Route path="/signup">
-            <SignupForm setCurrentUser={setCurrentUser} />
-            <h1>I'm signing up</h1>
+            <SignupForm
+              setCurrentUser={setCurrentUser}
+              setIsLoggedIn={setIsLoggedIn}
+            />
           </Route>
           <Route path="/profile">
             <h1>Profile</h1>
