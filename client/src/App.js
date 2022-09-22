@@ -1,29 +1,63 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+import LoginForm from "./LoginForm";
+import SignupForm from "./SignupForm";
+import NavBar from "./NavBar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetch("/hello")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setIsAuthenticated(true);
+        });
+      }
+    });
   }, []);
 
+  const history = { useHistory };
+  const handleLogout = () => {
+    fetch("/logout", { method: "DELETE" }).then((res) => {
+      if (res.ok) {
+        setCurrentUser(null);
+        setIsLoggedIn(false);
+        history.push("/");
+      }
+    });
+  };
   return (
     <BrowserRouter>
+      <NavBar handleLogout={handleLogout} isLoggedIn={isLoggedIn} />
       <div className="App">
         <Switch>
-          <Route path="/testing">
-            <h1>Test Route</h1>
+          <Route exact path="/">
+            <h1>Home</h1>
           </Route>
-          <Route path="/">
-            <h1>Page Count: {count}</h1>
+          <Route path="/login">
+            <LoginForm
+              // isLoggedIn={isLoggedIn}
+              setIsLoggedIn={setIsLoggedIn}
+              setCurrentUser={setCurrentUser}
+              handleLogout={handleLogout}
+            />
+            <h1>It's All Happening</h1>
+          </Route>
+          <Route path="/signup">
+            <SignupForm setCurrentUser={setCurrentUser} />
+            <h1>I'm signing up</h1>
+          </Route>
+          <Route path="/profile">
+            <h1>Profile</h1>
           </Route>
         </Switch>
       </div>
     </BrowserRouter>
   );
 }
-
 export default App;
