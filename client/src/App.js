@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import NavBar from "./components/NavBar";
+import Home from "./components/Home";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -41,7 +42,9 @@ function App() {
 
       <div className="App">
         <Switch>
-          <Route exact path="/"></Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
           <Route path="/login">
             <LoginForm
               // isLoggedIn={isLoggedIn}
