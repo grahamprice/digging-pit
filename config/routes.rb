@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :product_categories
+  resources :products
+  
   get 'sessions/create'
   get 'sessions/destroy'
   post "/login", to: "sessions#create"
@@ -8,6 +11,19 @@ Rails.application.routes.draw do
   # get '/hello', to: 'application#hello_world'
 
   get '/me', to: "users#show"
+  #Men's section
+  get '/mens', to: "products#show"
+  get '/mens', to: "products#index"
+
+  #Women's Section
+  get '/womens', to: "products#show"
+  get '/womens', to: "products#index"
+  get '/womenscard', to: "products#show"
+  get '/womenscard', to: "products#index"
+
+  #To Mens Card
+  get '/menscard', to: "products#show"
+
 
   get '/signup', to: 'users#create'
   
