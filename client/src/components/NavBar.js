@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 
-function NavBar({ handleLogout, isLoggedIn, currentUser }) {
+function NavBar({ handleLogout, isLoggedIn }) {
   let history = useHistory();
 
   const toProfile = () => {

@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const LoginForm = ({ setCurrentUser, isLoggedIn, setIsLoggedIn }) => {
+const LoginForm = ({
+  currentUser,
+  setCurrentUser,
+  isLoggedIn,
+  setIsLoggedIn,
+}) => {
   const [formData, setFormData] = useState({
     username: "",
-    email: "",
     password: "",
   });
 
@@ -29,9 +33,10 @@ const LoginForm = ({ setCurrentUser, isLoggedIn, setIsLoggedIn }) => {
       if (res.ok) {
         res.json().then((user) => {
           setCurrentUser(user);
-          history.push("/");
           setIsLoggedIn(true);
-          console.log(isLoggedIn);
+          history.push("/");
+          // console.log(isLoggedIn);
+          // console.log(currentUser);
         });
       } else {
         res.json().then((errors) => {
@@ -51,14 +56,14 @@ const LoginForm = ({ setCurrentUser, isLoggedIn, setIsLoggedIn }) => {
         value={formData.username}
         onChange={handleChange}
       />
-      <label htmlFor="email">Email:</label>
+      {/* <label htmlFor="email">Email:</label>
       <input
         id="email-input"
         type="text"
         name="email"
         value={formData.email}
         onChange={handleChange}
-      />
+      /> */}
       <label htmlFor="password">Password:</label>
       <input
         id="password-input"
