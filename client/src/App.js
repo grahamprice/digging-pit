@@ -41,6 +41,18 @@ function App() {
     });
   };
 
+  const [category, setCategory] = useState([]);
+  //Category fetch
+  useEffect(() => {
+    fetch("/categories")
+      .then((res) => res.json())
+      .then((data) => setCategory(data));
+  }, []);
+
+  // const allCategories = category.map((category) => {
+  //   return <Home category={category} />;
+  // });
+
   return (
     <BrowserRouter>
       <NavBar handleLogout={handleLogout} isLoggedIn={isLoggedIn} />

@@ -4,8 +4,8 @@ import { useHistory } from "react-router-dom";
 import MensProductCard from "./MensProductCard";
 
 function MensPage() {
-  const [products, setProducts] = useState([]);
   let history = useHistory();
+  const [products, setProducts] = useState([]);
 
   const toMensCard = () => {
     history.push("/menscard");
@@ -23,7 +23,7 @@ function MensPage() {
   });
 
   return (
-    <div className="max-w-sm" onClick={toMensCard}>
+    <div className="max-w-sm content-center" onClick={toMensCard}>
       {allProducts}
     </div>
   );

@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
-  resources :product_categories
+
   resources :products
+  resources :categories
   
+  resources :categories do
+    resources :products
+  end
+
   get 'sessions/create'
   get 'sessions/destroy'
   post "/login", to: "sessions#create"
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
   #To Mens Card
   get '/menscard', to: "products#show"
 
+  get '/mens', to: "categories#mens"
 
   get '/signup', to: 'users#create'
   

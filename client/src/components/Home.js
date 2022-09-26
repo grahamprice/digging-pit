@@ -14,30 +14,19 @@ function Home() {
   const toWomensSection = () => {
     history.push("/womens");
   };
+
   return (
     <div className="h-56\\ sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
-        <img
-          onClick={toMensSection}
-          src="https://pyxis.nymag.com/v1/imgs/36b/a9d/596289e7731ebecec1ebde78a3475c0620-StratWoodenSleepersLede.rhorizontal.w700.jpg"
-          alt="..."
-        />
+        <img onClick={toMensSection} src="img.png" alt="Mens" />
         <img
           onClick={toWomensSection}
-          src="https://media.timeout.com/images/105795964/750/422/image.jpg"
-          alt="..."
+          src="https://as2.ftcdn.net/v2/jpg/04/25/98/85/1000_F_425988540_nF96Y9CquiUeYp0zoSylEUzQPNfrFMZs.jpg"
+          alt="Womens"
         />
         <img
-          src="https://media.timeout.com/images/103166743/750/562/image.jpg"
-          alt="..."
-        />
-        <img
-          src="https://media.timeout.com/images/103166747/750/562/image.jpg"
-          alt="..."
-        />
-        <img
-          src="https://media.timeout.com/images/105293264/750/562/image.jpg"
-          alt="..."
+          src="https://as2.ftcdn.net/v2/jpg/05/29/76/79/1000_F_529767940_tZ5qRliV04YImJDLFyVEKrKSb2gzf48K.jpg"
+          alt="Accessories"
         />
       </Carousel>
     </div>

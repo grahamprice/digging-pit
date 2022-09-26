@@ -11,6 +11,9 @@ function MensProductCard({ product }) {
         <p className="font-normal text-gray-700 dark:text-gray-400">
           {product.description}
         </p>
+        <p className="font-normal text-gray-700 dark:text-gray-400">
+          ${product.price}
+        </p>
       </Card>
     </div>
   );
