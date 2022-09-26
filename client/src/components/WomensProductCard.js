@@ -4,7 +4,7 @@ function WomensProductCard({ product }) {
   return (
     <div className="max-w-3xl">
       <Card>
-        <img src={product.image} alt="mens-card-photo"></img>
+        <img src={product.image} alt="womens-card-photo"></img>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {product.name}
         </h5>
