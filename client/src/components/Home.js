@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Carousel } from "flowbite-react";
+import MensPage from "./MensPage";
 
 function Home() {
   const history = useHistory();
@@ -18,7 +19,11 @@ function Home() {
   return (
     <div className="h-56\\ sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
-        <img onClick={toMensSection} src="img.png" alt="Mens" />
+        <img
+          onClick={toMensSection}
+          src="https://as2.ftcdn.net/v2/jpg/05/15/74/87/1000_F_515748751_UULFUukHEJHmyB0LOMyl5QAazb9G1Jg6.jpg"
+          alt="Mens"
+        />
         <img
           onClick={toWomensSection}
           src="https://as2.ftcdn.net/v2/jpg/04/25/98/85/1000_F_425988540_nF96Y9CquiUeYp0zoSylEUzQPNfrFMZs.jpg"
@@ -29,6 +34,7 @@ function Home() {
           alt="Accessories"
         />
       </Carousel>
+      <MensPage />
     </div>
   );
 }

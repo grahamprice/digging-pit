@@ -23,7 +23,10 @@ function MensPage() {
   });
 
   return (
-    <div className="max-w-sm content-center" onClick={toMensCard}>
+    <div
+      className="grid grid-flow-row-dense grid-cols-3 grid-rows-3"
+      onClick={toMensCard}
+    >
       {allProducts}
     </div>
   );
