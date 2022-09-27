@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
-
+import ShoppingCart from "./ShoppingCart";
 function NavBar({ handleLogout, isLoggedIn }) {
   let history = useHistory();
 
@@ -88,6 +88,7 @@ function NavBar({ handleLogout, isLoggedIn }) {
         <Navbar.Link href="/sell">Sell</Navbar.Link>
         <Navbar.Link href="/contact">Contact</Navbar.Link> */}
       </Navbar.Collapse>
+      {/* <ShoppingCart /> */}
     </Navbar>
   );
 }

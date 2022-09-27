@@ -5,10 +5,10 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import MensPage from "./components/MensPage";
-import MensProductCard from "./components/MensProductCard";
+import MensPage from "./components/CollectionPage";
+import ProductCard from "./components/ProductCard";
 import WomensPage from "./components/WomensPage";
-import WomensProductCard from "./components/WomensProductCard";
+// import WomensProductCard from "./components/WomensProductCard";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -79,18 +79,18 @@ function App() {
           <Route path="/profile">
             <h1>Profile</h1>
           </Route>
-          <Route path="/mens">
+          {/* <Route path="/mens">
             <MensPage />
           </Route>
           <Route path="/womens">
             <WomensPage />
           </Route>
           <Route path="/womenscard">
-            <WomensProductCard />
+            <ProductCard />
           </Route>
           <Route path="/menscard">
-            <MensProductCard />
-          </Route>
+            <ProductCard />
+          </Route> */}
         </Switch>
       </div>
     </BrowserRouter>

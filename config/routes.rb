@@ -37,8 +37,7 @@ Rails.application.routes.draw do
       to: 'fallback#index',
       constraints: ->(req) { !req.xhr? && req.format.html? }
 
-  # #authentication routes
-  # post '/signup', to: "users#create"
-
+  # #authorization route
+  get "/auth", to: "users#show"
 end
  
