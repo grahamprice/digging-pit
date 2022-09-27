@@ -3,22 +3,20 @@ import { useHistory } from "react-router-dom";
 // import { Card } from "flowbite-react";
 import ProductCard from "./ProductCard";
 
-function CollectionPage({ products }) {
+function CollectionPage({ products, setProducts }) {
   let history = useHistory();
-  console.log(products);
-  // const toMensCard = () => {
-  //   history.push("/menscard");
-  // };
-
-  //Product Fetching
-  // useEffect(() => {
-  //   fetch("/products")
-  //     .then((res) => res.json())
-  //     .then((productArr) => setProducts(productArr));
-  // }, []);
+  // console.log(products);
 
   const allProducts = products.map((product) => {
-    return <ProductCard product={product} key={product.id} />;
+    console.log(product);
+    return (
+      <ProductCard
+        id={product.id}
+        product={product}
+        key={product.id}
+        setProducts={setProducts}
+      />
+    );
   });
 
   return (

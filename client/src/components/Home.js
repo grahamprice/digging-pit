@@ -11,7 +11,7 @@ function Home() {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }
-  console.log(products);
+  // console.log(products);
   return (
     <div className="h-56\\ sm:h-64 xl:h-80 2xl:h-96">
       <Carousel>
@@ -34,7 +34,7 @@ function Home() {
           value="3"
         />
       </Carousel>
-      <CollectionPage products={products} />
+      <CollectionPage products={products} setProducts={setProducts} />
     </div>
   );
 }
