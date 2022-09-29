@@ -5,20 +5,24 @@ import LoginForm from "./LoginForm";
 import SignupForm from "./SignupForm";
 import NavBar from "./components/NavBar";
 import Home from "./components/Home";
-import MensPage from "./components/CollectionPage";
-import ProductCard from "./components/ProductCard";
-import WomensPage from "./components/WomensPage";
-// import WomensProductCard from "./components/WomensProductCard";
+import Profile from "./components/Profile";
+// import ProductCard from "./components/ProductCard";
+import PostForm from "./components/PostForm";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  const [category, setCategory] = useState([]);
+  const [productspost, setProductsPost] = useState([]);
   const history = useHistory();
 
-  // Me Fetch
   useEffect(() => {
+    fetch("/auth").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => setCurrentUser(user));
+      }
+    });
     fetch("/me").then((res) => {
       if (res.ok) {
         res.json().then((user) => {
@@ -26,9 +30,14 @@ function App() {
           setIsLoggedIn(true);
           setIsAuthenticated(true);
         });
+        fetch("/categories")
+          .then((res) => res.json())
+          .then((data) => setCategory(data));
       }
     });
   }, []);
+
+  if (!currentUser) return <LoginForm setCurrentUser={setCurrentUser} />;
 
   //Logout
   const handleLogout = () => {
@@ -40,18 +49,23 @@ function App() {
       }
     });
   };
+  console.log(isAuthenticated);
+  console.log(category);
+  //Profile Components
+  // const [users, setUsers] = useState([]);
+  // useEffect(() => {
+  //   fetch("/users")
+  //     .then((res) => res.json())
+  //     .then((data) => setUsers(data));
+  // }, []);
 
-  const [category, setCategory] = useState([]);
-  //Category fetch
-  useEffect(() => {
-    fetch("/categories")
-      .then((res) => res.json())
-      .then((data) => setCategory(data));
-  }, []);
-
-  // const allCategories = category.map((category) => {
-  //   return <Home category={category} />;
+  // const allUsers = users.map((user) => {
+  //   console.log(user);
+  //   return <Profile users={users} key={user.id} setUsers={setUsers} />;
   // });
+  function handleAddProducts(newProducts) {
+    setProductsPost([...productspost, newProducts]);
+  }
 
   return (
     <BrowserRouter>
@@ -77,7 +91,10 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <h1>Profile</h1>
+            <Profile />
+          </Route>
+          <Route path="/newpost">
+            <PostForm onAddPost={handleAddProducts} currentUser={currentUser} />
           </Route>
 
           {/* <Route path="/mens">

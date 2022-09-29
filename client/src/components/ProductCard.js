@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Card } from "flowbite-react";
 // import ProductDetails from "./ProductDetails";
 function ProductCard({ product, setProducts, id }) {
+  const [extraInfo, setExtraInfo] = useState(false);
   //
   function handleCardImageClick(event) {
     const prod_id = event.target.id;
 
     fetch(`/products/${prod_id}`)
       .then((res) => res.json())
-      .then((data) => setProducts([data]));
+      .then((data) => {
+        setProducts([data]);
+        setExtraInfo(true);
+      });
   }
 
   return (
@@ -27,12 +31,16 @@ function ProductCard({ product, setProducts, id }) {
             {product.name}
           </h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">
-            {product.description}
-          </p>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
             ${product.price}
           </p>
-          {/* <button> View </button> */}
+          {extraInfo ? (
+            <div>
+              <p className="font-normal text-gray-700 dark:text-gray-400">
+                {product.description}
+              </p>
+              <p>Add To Cart</p>
+            </div>
+          ) : null}
         </div>
       </Card>
     </div>

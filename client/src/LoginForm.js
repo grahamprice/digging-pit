@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Route, useHistory } from "react-router-dom";
+import SignupForm from "./SignupForm";
 
 const LoginForm = ({
   currentUser,
@@ -21,6 +22,9 @@ const LoginForm = ({
 
   const history = useHistory();
 
+  const toSignUpForm = () => {
+    history.push("/signup");
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch("/login", {
@@ -73,6 +77,8 @@ const LoginForm = ({
         onChange={handleChange}
       />
       <button type="submit">Submit</button>
+      <p>Don't have an account? </p>
+      <button onClick={toSignUpForm}>Click Here</button>
     </form>
   );
 };

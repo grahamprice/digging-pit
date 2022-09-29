@@ -21,14 +21,18 @@ Rails.application.routes.draw do
   get '/mens', to: "products#index"
 
   #Women's Section
-  get '/womens', to: "products#show"
-  get '/womens', to: "products#index"
-  get '/womenscard', to: "products#show"
-  get '/womenscard', to: "products#index"
+  # get '/womens', to: "products#show"
+  # get '/womens', to: "products#index"
+  # get '/womenscard', to: "products#show"
+  # get '/womenscard', to: "products#index"
 
   #To Mens Card
-  get '/menscard', to: "products#show"
-
+  
+  get '/newpost', to: "products#create"
+  get '/newpost', to: "products#show"
+  get '/newpost', to: "products#index"
+  # get '/profile', to: "users#show"
+  
   get '/mens', to: "categories#mens"
 
   get '/signup', to: 'users#create'
@@ -38,6 +42,6 @@ Rails.application.routes.draw do
       constraints: ->(req) { !req.xhr? && req.format.html? }
 
   # #authorization route
-  get "/auth", to: "users#show"
+  get "/auth", to: "users#admin_show"
 end
  

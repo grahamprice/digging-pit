@@ -8,7 +8,7 @@ function CollectionPage({ products, setProducts }) {
   // console.log(products);
 
   const allProducts = products.map((product) => {
-    console.log(product);
+    // console.log(product);
     return (
       <ProductCard
         id={product.id}
