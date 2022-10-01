@@ -3,9 +3,7 @@ import React, { useState } from "react";
 import { Carousel } from "flowbite-react";
 import CollectionPage from "./CollectionPage";
 
-function Home() {
-  const [products, setProducts] = useState([]);
-
+function Home({ cart, setCart, products, setProducts }) {
   function handleCarouselImageClick(cat_id) {
     fetch(`/categories/${cat_id}/products`)
       .then((res) => res.json())
@@ -34,7 +32,12 @@ function Home() {
           value="3"
         />
       </Carousel>
-      <CollectionPage products={products} setProducts={setProducts} />
+      <CollectionPage
+        products={products}
+        setProducts={setProducts}
+        cart={cart}
+        setCart={setCart}
+      />
     </div>
   );
 }

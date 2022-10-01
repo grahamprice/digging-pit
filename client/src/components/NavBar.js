@@ -1,8 +1,8 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
-import ShoppingCart from "./ShoppingCart";
-function NavBar({ handleLogout, isLoggedIn }) {
+// import ShoppingCart from "./ShoppingCart";
+function NavBar({ handleLogout, isLoggedIn, setCart, cart, product }) {
   let history = useHistory();
 
   const toProfile = () => {
@@ -18,6 +18,9 @@ function NavBar({ handleLogout, isLoggedIn }) {
   const toLogIn = () => {
     history.push("/login");
   };
+  function handleAddToCart() {
+    setCart([...cart, product]);
+  }
 
   return (
     <Navbar fluid={true} rounded={true}>
@@ -84,9 +87,11 @@ function NavBar({ handleLogout, isLoggedIn }) {
       )}
       <Navbar.Collapse>
         <Navbar.Link href="/">Home</Navbar.Link>
-        <Navbar.Link href="/shop">Shop</Navbar.Link>
-        <Navbar.Link href="/sell">Sell</Navbar.Link>
-        <Navbar.Link href="/contact">Contact</Navbar.Link>
+        {/* <Navbar.Link href="/shop">Shop</Navbar.Link> */}
+        <Navbar.Link onClick={handleAddToCart} href="/cart">
+          Cart
+        </Navbar.Link>
+        {/* <Navbar.Link href="/contact"></Navbar.Link> */}
       </Navbar.Collapse>
     </Navbar>
   );

@@ -37,8 +37,8 @@
   }
 }
 
-#profile-container{
-  display: flex;
-  width: 200px;
-  height: 200px;
+#cart-div{
+  height: 100px;
+  width: 100px;
+  background-color: rosybrown;
 }

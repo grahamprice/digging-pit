@@ -8,13 +8,17 @@ import Home from "./components/Home";
 import Profile from "./components/Profile";
 // import ProductCard from "./components/ProductCard";
 import PostForm from "./components/PostForm";
+import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [category, setCategory] = useState([]);
+  const [products, setProducts] = useState([]);
   const [productspost, setProductsPost] = useState([]);
+  const [cart, setCart] = useState([]);
+
   const history = useHistory();
 
   useEffect(() => {
@@ -49,8 +53,8 @@ function App() {
       }
     });
   };
-  console.log(isAuthenticated);
-  console.log(category);
+  // console.log(isAuthenticated);
+  // console.log(category);
   //Profile Components
   // const [users, setUsers] = useState([]);
   // useEffect(() => {
@@ -66,15 +70,25 @@ function App() {
   function handleAddProducts(newProducts) {
     setProductsPost([...productspost, newProducts]);
   }
-
+  console.log(cart);
   return (
     <BrowserRouter>
-      <NavBar handleLogout={handleLogout} isLoggedIn={isLoggedIn} />
-
+      <NavBar
+        handleLogout={handleLogout}
+        isLoggedIn={isLoggedIn}
+        setCart={setCart}
+        cart={cart}
+        product={products}
+      />
       <div className="App">
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home
+              cart={cart}
+              setCart={setCart}
+              products={products}
+              setProducts={setProducts}
+            />
           </Route>
           <Route path="/login">
             <LoginForm
@@ -95,6 +109,15 @@ function App() {
           </Route>
           <Route path="/newpost">
             <PostForm onAddPost={handleAddProducts} currentUser={currentUser} />
+          </Route>
+          <Route path="/cart">
+            <ShoppingCart cart={cart} />
+            {/* <div>
+              <p>nameName</p>
+              <p>description</p>
+              <p>price</p>
+              <p>imageimage</p>
+            </div> */}
           </Route>
 
           {/* <Route path="/mens">

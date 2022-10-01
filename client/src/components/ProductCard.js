@@ -3,7 +3,23 @@ import { Card } from "flowbite-react";
 // import ProductDetails from "./ProductDetails";
 function ProductCard({ product, setProducts, id }) {
   const [extraInfo, setExtraInfo] = useState(false);
-  //
+  // console.log(product);
+
+  function handleAddToCart() {
+    fetch("/add_to_cart", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        product_id: 5,
+        quantity: 1,
+      }),
+    });
+  }
+
+  // console.log(cart);
+
   function handleCardImageClick(event) {
     const prod_id = event.target.id;
 
@@ -38,7 +54,7 @@ function ProductCard({ product, setProducts, id }) {
               <p className="font-normal text-gray-700 dark:text-gray-400">
                 {product.description}
               </p>
-              <p>Add To Cart</p>
+              <button onClick={handleAddToCart}>Add To Cart</button>
             </div>
           ) : null}
         </div>

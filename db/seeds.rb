@@ -6,7 +6,9 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-user1 = User.create(username: "thediggingpit", email: "dig@diggingpit.com", first_name: 'Max', last_name: "Beezy", admin: true, password: 'password')
+user1 = User.create(username: "thediggingpit", email: "dig@thediggingpit.com", first_name: 'Max', last_name: "Beezy", admin: true, password: 'password')
+user2 = User.create(username: "buzz", email: "buzz@nasa.com", first_name: "Buzz", last_name: "Aldrin", admin: false, password: '123' )
+user3 = User.create(username: "arod", email: "arod@nyy.com", first_name: "Alex", last_name: "Rodriguez", admin: false, password: 'dinger' )
 
 puts 'seeding categories...'
 
@@ -83,7 +85,19 @@ product15 = Product.create( name: "CHROME HEARTS STERLING SILVER CROSS CLUSTER C
     AVAILABLE TO PURCHASE
     
     TO BE WORN ON THE RIGHT EAR", price: 1350 , category_id: 3, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/koNRZGeuSOWNaG2lZ0As", user_id: 1)
-
     puts 'products seeded'
+
+    cart_item1 = CartItem.create(product_id: 10, user_id: 2, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 1, user_id: 3, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 5, user_id: 2, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 6, user_id: 2, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 7, user_id: 3, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 11, user_id: 2, quantity: 2)
+    cart_item1 = CartItem.create(product_id: 1, user_id: 3, quantity: 2)
+    cart_item1 = CartItem.create(product_id: 2, user_id: 3, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 4, user_id: 2, quantity: 10)
+    cart_item1 = CartItem.create(product_id: 3, user_id: 2, quantity: 1)
+    cart_item1 = CartItem.create(product_id: 9, user_id: 3, quantity: 1)
+    puts 'cart items seeded'
 
 puts "Data Seeded :)))"

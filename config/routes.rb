@@ -1,21 +1,29 @@
 Rails.application.routes.draw do
+  resources :cart_items
 
   resources :products
   resources :categories
+  resources :users
   
   resources :categories do
     resources :products
   end
 
-  get 'sessions/create'
-  get 'sessions/destroy'
+  #Cart items with users
+
+ 
+  post '/add_to_cart', to: 'cart_items#create'
+  get '/show_cart', to: 'cart_items#user_cart_items'
+
+  # get 'sessions/create'
+  # get 'sessions/destroy'
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
-  resources :users
   
   # get '/hello', to: 'application#hello_world'
 
   get '/me', to: "users#show"
+
   #Men's section
   get '/mens', to: "products#show"
   get '/mens', to: "products#index"
