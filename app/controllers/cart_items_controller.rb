@@ -13,6 +13,10 @@ def user_cart_items
     render json: cart_items, status: :ok
 end
 
+def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+end
 
 # def user_cart_items
 #     user_id = params[:user_id]

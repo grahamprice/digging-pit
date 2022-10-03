@@ -9,7 +9,7 @@ import Profile from "./components/Profile";
 // import ProductCard from "./components/ProductCard";
 import PostForm from "./components/PostForm";
 import ShoppingCart from "./components/ShoppingCart";
-
+import Checkout from "./components/Checkout";
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
@@ -116,7 +116,10 @@ function App() {
             <PostForm onAddPost={handleAddProducts} currentUser={currentUser} />
           </Route>
           <Route path="/cart">
-            <ShoppingCart cart={cart} />
+            <ShoppingCart />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
 
           {/* <Route path="/mens">

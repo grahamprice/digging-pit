@@ -5,14 +5,13 @@ import FooterHub from "./FooterHub";
 function ProductCard({ product, setProducts, id }) {
   const [extraInfo, setExtraInfo] = useState(false);
   const [individualProduct, setIndividualProduct] = useState({});
+
   const [formData, setFormData] = useState({
     product_id: "",
     quantity: "",
   });
-  // console.log(product);
 
-  function handleAddToCart(e) {
-    e.preventDefault();
+  function handleAddToCart() {
     fetch("/add_to_cart", {
       method: "POST",
       headers: {
@@ -25,7 +24,7 @@ function ProductCard({ product, setProducts, id }) {
     });
   }
 
-  // console.log(cart);
+  // function handleDelete(id) {}
 
   function handleCardImageClick(event) {
     const prod_id = event.target.id;
