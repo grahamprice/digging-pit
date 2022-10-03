@@ -1,6 +1,6 @@
 import React from "react";
 
-function ProductDetails({ product, id }) {
+function ProductDetails({ id }) {
   return (
     <div>
       <div>
@@ -9,7 +9,6 @@ function ProductDetails({ product, id }) {
           src={product.image}
           alt="mens-card-photo"
           className=""
-          //   onClick={(event) => handleCardImageClick(event)}
         ></img>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {product.name}

@@ -2,7 +2,18 @@ import React from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 // import ShoppingCart from "./ShoppingCart";
-function NavBar({ handleLogout, isLoggedIn, setCart, cart, product }) {
+import Search from "./Search";
+
+function NavBar({
+  handleLogout,
+  isLoggedIn,
+  setCart,
+  cart,
+  product,
+  searchTerm,
+  onChangeSearch,
+  currentUser,
+}) {
   let history = useHistory();
 
   const toProfile = () => {
@@ -34,6 +45,7 @@ function NavBar({ handleLogout, isLoggedIn, setCart, cart, product }) {
           The Digging Pit
         </span>
       </Navbar.Brand>
+
       {isLoggedIn ? (
         <div className="flex md:order-2">
           <Dropdown
@@ -49,9 +61,9 @@ function NavBar({ handleLogout, isLoggedIn, setCart, cart, product }) {
           >
             <Dropdown.Header>
               <span className="block text-sm">Welcome</span>
-              {/* <span className="block truncate text-sm font-medium">
-                {currentUser.email}
-              </span> */}
+              <span className="block truncate text-sm font-medium">
+                {currentUser.username}
+              </span>
             </Dropdown.Header>
             <Dropdown.Item onClick={toHome}>Home</Dropdown.Item>
             <Dropdown.Item onClick={toProfile}>Settings</Dropdown.Item>
@@ -86,9 +98,18 @@ function NavBar({ handleLogout, isLoggedIn, setCart, cart, product }) {
         </div>
       )}
       <Navbar.Collapse>
-        <Navbar.Link href="/">Home</Navbar.Link>
-        {/* <Navbar.Link href="/shop">Shop</Navbar.Link> */}
-        <Navbar.Link onClick={handleAddToCart} href="/cart">
+        <Navbar href="/search_results">
+          <Search searchTerm={searchTerm} onChangeSearch={onChangeSearch} />
+        </Navbar>
+        {/* <Navbar.Link href="/" id="nav-home-link">
+          Home
+        </Navbar.Link> */}
+
+        <Navbar.Link
+          onClick={handleAddToCart}
+          id="cart-button-nav"
+          href="/cart"
+        >
           Cart
         </Navbar.Link>
         {/* <Navbar.Link href="/contact"></Navbar.Link> */}

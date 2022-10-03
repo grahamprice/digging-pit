@@ -13,6 +13,7 @@ def user_cart_items
     render json: cart_items, status: :ok
 end
 
+
 # def user_cart_items
 #     user_id = params[:user_id]
 #     cart_items = CartItem.where( "user_id = ?", user_id)

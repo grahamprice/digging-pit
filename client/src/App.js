@@ -18,6 +18,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [productspost, setProductsPost] = useState([]);
   const [cart, setCart] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const history = useHistory();
 
@@ -53,9 +54,7 @@ function App() {
       }
     });
   };
-  // console.log(isAuthenticated);
-  // console.log(category);
-  //Profile Components
+
   // const [users, setUsers] = useState([]);
   // useEffect(() => {
   //   fetch("/users")
@@ -79,7 +78,12 @@ function App() {
         setCart={setCart}
         cart={cart}
         product={products}
+        onChangeSearch={setSearchTerm}
+        searchTerm={searchTerm}
+        setProducts={setProducts}
+        currentUser={currentUser}
       />
+
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -88,6 +92,7 @@ function App() {
               setCart={setCart}
               products={products}
               setProducts={setProducts}
+              searchTerm={searchTerm}
             />
           </Route>
           <Route path="/login">
@@ -112,12 +117,6 @@ function App() {
           </Route>
           <Route path="/cart">
             <ShoppingCart cart={cart} />
-            {/* <div>
-              <p>nameName</p>
-              <p>description</p>
-              <p>price</p>
-              <p>imageimage</p>
-            </div> */}
           </Route>
 
           {/* <Route path="/mens">

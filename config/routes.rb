@@ -24,6 +24,10 @@ Rails.application.routes.draw do
 
   get '/me', to: "users#show"
 
+
+  #search results
+
+  get '/search_results', to: "products#show_search"
   #Men's section
   get '/mens', to: "products#show"
   get '/mens', to: "products#index"

@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Dropdown } from "flowbite-react";
 import PostForm from "./PostForm";
 import { useHistory } from "react-router-dom";
-function Profile({ users }) {
+function Profile({}) {
   const history = useHistory();
   const toPostForm = () => {
     history.push("/newpost");
@@ -45,10 +45,10 @@ function Profile({ users }) {
             alt="Bonnie image"
           />
           <h5 className="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-            Bonnie
+            The Digging Pit
           </h5>
           <span className="text-sm text-gray-500 dark:text-gray-400">
-            Visual Designer
+            Admin
           </span>
           <div className="mt-4 flex space-x-3 lg:mt-6">
             <a

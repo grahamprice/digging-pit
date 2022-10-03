@@ -19,6 +19,13 @@ class ProductsController < ApplicationController
       product = Product.create!(product_params)
       render json: product, status: :created
     end
+
+    def show_search
+      search_product = Product.find_by(prod_id: params[:prod_id])
+      render json: search_product, status: :ok
+    end
+
+    
     private
 
     def product_params
