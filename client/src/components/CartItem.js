@@ -44,7 +44,7 @@ function CartItem({ product, quantity }) {
             </button>
           </div>
           <div className="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-            <h5 className="mb-0">${product.price}.00</h5>
+            <h5 className="text-green-500">${product.price}.00</h5>
           </div>
           <div className="col-md-1 col-lg-1 col-xl-1 text-end">
             <a className="text-danger">

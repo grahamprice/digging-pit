@@ -21,71 +21,30 @@ puts "categories seeded"
 
 
 puts 'seeding products...'
+
 #Product Seeds
-product1 = Product.create( name: "Harley T Shirt", description: "Men's Harley Davidson Short Sleeve Vintage Shirt", price: 124.00, category_id: 1, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/sxIxGUtQeGszbOJ30Ttg", user_id: 1)
-product2 = Product.create( name: "Off-White x Chrome Hearts Art Basel 2018 Patchwork Denim", description: "Designer: Off-White x Chrome Hearts", price: 8500, category_id: 1, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/cache=expiry:max/rotate=deg:exif/resize=width:2400,fit:crop/output=quality:70/compress/https://process.fs.grailed.com/cFgNIp66TgihdV23AcUl", user_id: 1)
-product3 = Product.create( name: "Raf Simons x Sterling Ruby Fall/Winter 2014 Wool Coat", description: "Designer: Sterling Ruby x Raf Simons", price: 5500, category_id: 1, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/cache=expiry:max/rotate=deg:exif/resize=width:2400,fit:crop/output=quality:70/compress/https://process.fs.grailed.com/gTxm8GP3Qr6G0HoGz8bg ", user_id: 1)
-product4 = Product.create( name: "Rick Owens Dunks", description: "Nice", price: 200, category_id: 1, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/cache=expiry:max/rotate=deg:exif/resize=width:2400,fit:crop/output=quality:70/compress/https://process.fs.grailed.com/mwLmuYhIQ1eqQuj0yhKQ ", user_id: 1)
-product5 = Product.create( name: "Chanel Resort 19C La Pausa Tweed Shirt", description: "Chanel La Pausa Tweed Shirt
 
-    An homage to Lagerfields original creations, this tweed shirt remarks both of Karls exceptional work and Gabrielle Chanels material inspiration from the 50s thru the 70s. A proof of concept though posthumously fulfilled, that Chanel will not only be a symbol of opulence and wealth but a cultural giant, a pioneer of classic style surviving two world wars and major economic crises. ", price: 550, category_id: 2, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/OxlWxMIoRBG5yoa2o238", user_id: 1)
-product6 = Product.create( name: "New With Defect BALMAIN Pink Biker Jacket Size 2/36 $4995", description: " Long Sleeve
-    Quilted Detailing
-    Working Button Cuffs
-    Gold Toned Hardware
-    Double Zipper
-    Size 2 US = Size 36 EU
-    100% Lamb Skin
-    Defect: Discolor At Shoulders
-    Measurements:
-    Chest: 31
-    58LE-420
-    N", price: 1500, category_id: 2, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/WCqLMwYTCzJJPPdw4M9Q", user_id: 1)
-product7 = Product.create( name: "BNWT Prada Logo Combat Boots ankle pouch", description: "BNWT Prada Logo Combat Boots ankle pouch", description: " Brand: Prada. Model: Combat boots Fit: 1 Size bigger. Please get in touch if you are interested in purchasing more than 1 item. In that case we will be pleased to send you a combined offer. All Prices stated are set and exclude shipping.", price: "1395", category_id: 2, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/ER1eXDswQpmN91h8mtle", user_id: 1)
-product8 = Product.create( name: "Balenciaga Le Cagole XS Shoulder Bag in White", description: "Balenciaga le cagole bag
-    No signs of wear
-    Basically brand new
-    Dimensions
-    L 10.2 x H 6.3 x 2 2.7 inch
-    Adjustable strap 18.1 inch", price: 2250, category_id: 2, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/pYzrz9WVRwCTfisCvaqI", user_id: 1)
-product9 = Product.create( name: "Christian Dior By John Galliano S/S 2006 Runway Dress", description: "Christian Dior By John Galliano S/S 2006 Runway Dress
-    🍑🍑🍑🍑🍑
-    Measurements
-    Shoulders : 14 inches
-    Chest: 15 inches
-    Length : 31/37 inches
-    Waist : 30 inches
-    Hem : 19 inches
-    Made in Italy ", price: 5000, category_id: 2, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/0617ophaSmG8C6RMMTof", user_id: 1)
-product10 = Product.create( name: "Christian Dior blue Oblique saddle bag", description: "Iconic saddle bag 💼
-    Cant go wrong with the oblique pattern", price: 2100, category_id: 2, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/9uS1RPPGTjICNxP18w86", user_id: 1)
-product11= Product.create( name: "COUSSIN PM BAG", price: 7100, category_id: 3, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/14rzNqf0QO6LUIMNtiX8", user_id: 1)
-product12 = Product.create( name: "Pink Sapphire Tiny Cross", description: "Very beautiful piece
-    Sapphires even more vibrant in person
-    Has a nice weight to it
-    All sales are final
-    No refunds ", price: 2985, category_id: 3, image: "https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/Iy6O5U40SrWXb8qhxiY3", user_id: 1)
-product13 = Product.create( name: "Iced out BAPE/Kid Cudi G shock", description: "Cuatom G shock kid cudi/ Bape edition
+#mens
+product1 = Product.create( name: "Nike x Billie Eilish NRG Fleece Hoodie 'Mushroom/Sequoia'", description: "Tay k very hard", price: 302, category_id: 1, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/071/667/522/original/937713_01.jpg.jpeg?action=crop&width=950", user_id: 1)
+product2 = Product.create( name: "Cactus Plant Flea Market x KAWS Shirt 'Black'", description: "Smile", price: 82, category_id: 1, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/070/340/108/original/923914_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product3 = Product.create( name: "BAPE ABC Camo Shark Full Zip Hoodie 'Pink'", description: "I got me some bathing ape", price: 999, category_id: 1, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/072/771/881/original/949552_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product4 = Product.create( name: "Chrome Hearts Cross Cemetery Tee 'Black/Multicolor'", description: "Chrome Heart Tag", price: 701, category_id: 1, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/068/941/520/original/904177_01.jpg.jpeg?action=crop&width=950", user_id: 3)
+product5 = Product.create( name: "Sp5der P*nk Hoodie 'Black'", description: "Super slimey", price: 272, category_id: 1, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/064/331/797/original/857581_01.jpg.jpeg?action=crop&width=950", user_id: 3)
 
-    Natural Diamonds set by hand onto a solid gold on the watch
-    
-    As well as the strap buckle
-    
-    real diamonds
-    
-     ", price: 12000, category_id: 3, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/NSrtOeVSAqJGnmy66pAw", user_id: 1)
-product14 = Product.create( name: "Alabaster Industries Silver Wood Grain Watch", description: "1 of 1 very rare alabaster industries watch.
-    one of the OG models.
-    
-    the pattern on dial shines in gold or silver depending on the light.
-    
-    in mint condition including original box and receipt ", price: 4200, category_id: 3, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/YR3T203SR1qE65g3gfwD", user_id: 1)
-product15 = Product.create( name: "CHROME HEARTS STERLING SILVER CROSS CLUSTER CUFF EARRING", description: " CHROME HEARTS STERLING SILVER CROSS CLUSTER CUFF EARRING
+#womens
+product6 = Product.create( name: "Marine Serre Second Skin Moon Top 'All Over Moon Tan'", description: "WHOOOOO", price: 347, category_id: 2, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/073/079/842/original/919790_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product7 = Product.create( name: "The North Face x Gucci GG Canvas Shearling Jacket 'Beige/Ebony'", description: "GUCCI!!! BURRR", price: 3002, category_id: 2, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/052/796/353/original/756829_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product8 = Product.create( name: "Versace Royalty Print Blouse 'Multicolor'", description: " Nice.", price: 383, category_id: 2, image: " https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/075/170/188/original/902772_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product9 = Product.create( name: "Sporty & Rich Marathon Long-Sleeve T-Shirt 'Black'",  description: "Sweet!", price: 50, category_id: 2, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/049/212/770/original/727496_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product10 = Product.create( name: "Nike x Stussy Insulated Skirt 'White/Gorge Green'", description: "Ruined on purpose", price: 102, category_id: 2, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/052/282/844/original/751399_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product11 = Product.create( name: "Comme des Garçons Logo Print Short Sleeve T-Shirt 'White'", description: "CDG Light piece", price: 345, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/070/098/644/original/921785_01.jpg.jpeg?width=950", user_id: 2)
 
-    AVAILABLE TO PURCHASE
-    
-    TO BE WORN ON THE RIGHT EAR", price: 1350 , category_id: 3, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/koNRZGeuSOWNaG2lZ0As", user_id: 1)
-    puts 'products seeded'
+#accessories
+product12 = Product.create( name: "Balenciaga Toy Bracelet 'Multicolor/Silver'", description: "Like candy from balenci", price: 3500, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/049/068/350/original/724873_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product13 = Product.create( name: "Hatton Labs Rainbow Tennis Bracelet 'Solid Sterling Silver'", description: "Taste the rainbow", price: 14000, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/070/791/605/original/929076_01.jpg.jpeg?action=crop&width=950", user_id: 3)
+product14 = Product.create( name: "Saint Laurent Bones Ring 'Oxidized Silver'", description: "I smell like ysl", price: 2000, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/063/370/789/original/851214_01.jpg.jpeg?action=crop&width=950", user_id: 3)
+product15 = Product.create( name: "Chrome Hearts Diamond Studded Dagger Bracelet 'Silver'", description: "Diamonds on my wrist", price: 1399, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/068/834/737/original/764126_01.jpg.jpeg?action=crop&width=950", user_id: 2)
+product16 = Product.create( name: "Palm Angels Logo Bracelet 'Black/Off White'", description: "Like hawaiian but way more expensive and made in taiwan", price: 215, category_id: 3, image: "https://image.goat.com/transform/v1/attachments/product_template_additional_pictures/images/071/033/988/original/927661_01.jpg.jpeg?action=crop&width=950", user_id: 3)
 puts 'products seeded'
 
     cart_item1 = CartItem.create(product_id: 10, user_id: 2, quantity: 1)

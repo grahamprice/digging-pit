@@ -45,13 +45,13 @@ function ProductCard({ product, setProducts, id }) {
               onClick={(event) => handleCardImageClick(event)}
             ></img>
             <h5
-              className="text-l font-bold tracking-tight text-gray-900 dark:text-white"
+              className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
               id="product-name"
             >
               {product.name}
             </h5>
             <p
-              className="text-m font-normal text-gray-700 dark:text-gray-400"
+              className="text-green-500 text-xl font-semibold"
               id="product-price"
             >
               ${product.price}.00
