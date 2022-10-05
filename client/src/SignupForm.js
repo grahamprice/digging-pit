@@ -8,26 +8,27 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
   });
   const history = useHistory();
 
-  const toLoginForm = () => {
-    history.push("/login");
-  };
+  // const toLoginForm = () => {
+  //   history.push("/login");
+  // };
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
   };
+
   function handleSubmit(e) {
     e.preventDefault();
-
-    const userCreds = { ...formData };
+    console.log(formData);
+    console.log("in hadnle submit");
 
     fetch("/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(userCreds),
+      body: JSON.stringify(formData),
     }).then((res) => {
       if (res.ok) {
         res.json().then((user) => {
@@ -85,16 +86,7 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
         value={formData.password}
         onChange={handleChange}
       />
-      <button
-        type="submit"
-        onClick={() => {
-          alert(":)");
-        }}
-      >
-        Submit
-      </button>
-      {/* <p>Don't have an account? </p>
-      <button onClick={toLoginForm}>Click Here</button> */}
+      <button type="submit">Submit</button>
     </form>
   );
 };

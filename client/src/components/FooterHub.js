@@ -7,7 +7,7 @@ import {
   BsSnapchat,
   BsTwitter,
 } from "react-icons/bs";
-
+import { FaTiktok } from "react-icons/fa";
 function FooterHub() {
   return (
     <Footer container={true}>
@@ -58,8 +58,11 @@ function FooterHub() {
               href="https://www.instagram.com/thediggingpit/"
               icon={BsInstagram}
             />
-            <Footer.Icon href="#" icon={BsTwitter} />
-            <Footer.Icon href="#" icon={BsGithub} />
+
+            <Footer.Icon
+              href="https://www.tiktok.com/@thediggingpit?lang=en"
+              icon={FaTiktok}
+            />
             <Footer.Icon href="#" icon={BsSnapchat} />
           </div>
         </div>

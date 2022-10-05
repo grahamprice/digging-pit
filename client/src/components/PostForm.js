@@ -105,7 +105,7 @@ function PostForm({ onAddPost, currentUser }) {
             alert("Post Added :)");
           }}
         >
-          Submit
+          Add Post
         </button>
       </form>
     </div>

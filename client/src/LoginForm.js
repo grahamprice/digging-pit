@@ -102,8 +102,8 @@ const LoginForm = ({
           <p>Don't have an account? </p>
 
           <button onClick={handleClick}>Click Here</button>
-          {isShown && <SignupForm />}
         </form>
+        {isShown && <SignupForm />}
         <div></div>
       </div>
     </div>
