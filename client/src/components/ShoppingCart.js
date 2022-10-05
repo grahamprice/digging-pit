@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
-
-function ShoppingCart() {
+import PayPal from "./PayPal";
+function ShoppingCart({ onDeleteProduct, product }) {
   const [cart, setCart] = useState([]);
+  const [checkout, setCheckout] = useState(false);
 
   useEffect(() => {
     fetch("/show_cart")
@@ -11,37 +12,64 @@ function ShoppingCart() {
   }, []);
 
   useEffect(() => {
-    console.log("cart");
+    // console.log("cart");
     console.log(cart);
   }, [cart]);
 
+  // function handleDeleteClick() {
+  //   fetch(`/cart_items/`, {
+  //     method: "DELETE",
+  //   })
+  //     .then((r) => r.json())
+  //     .then(() => {
+  //       onDeleteProduct(product);
+  //     });
+  // }
+
   const cartItems = cart.map((item) => {
-    console.log(item.product);
-    return <CartItem item={item.product} key={item.id} cart={cart} />;
+    console.log(item);
+    return (
+      <CartItem
+        product={item.product}
+        key={item.id}
+        quantity={item.quantity}
+        // handleDeleteClick={handleDeleteClick}
+      />
+    );
   });
-  console.log(cart);
+
+  let cartTotal = 0;
+  cart.forEach((item) => (cartTotal += item.product.price * item.quantity));
+  // console.log(cartTotal);
   return (
-    <section class="h-100" style={{ "background-color": "white" }}>
-      <div class="container h-100 py-5">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-          <div class="col-10">
-            <div class="d-flex justify-content-between align-items-center mb-4">
-              <h3 class="fw-normal mb-0 text-black">Shopping Cart</h3>
-              <div>
-                <p class="mb-0">
-                  <span class="text-muted">Sort by:</span>
-                  <a href="#!" class="text-body">
-                    price <i class="fas fa-angle-down mt-1"></i>
-                  </a>
-                </p>
-              </div>
+    <section className="h-100" style={{ backgroundColor: "white" }}>
+      <div className="container h-100 py-5">
+        <div className="row d-flex justify-content-center align-items-center h-100">
+          <div className="col-10">
+            <div className="d-flex justify-content-between align-items-center mb-4">
+              <h3 className="fw-normal mb-0 justify-center text-black">
+                Shopping Cart
+              </h3>
+              <div></div>
             </div>
             {cartItems}
-            <div class="card">
-              <div class="card-body">
-                <button type="button" class="btn btn-warning btn-block btn-lg">
-                  Checkout
-                </button>
+            <div className="card">
+              <div className="total">Total: ${cartTotal}</div>
+              <br />
+              <div className="card-body">
+                {checkout ? (
+                  <PayPal cartTotal={cartTotal} />
+                ) : (
+                  <button
+                    type="button"
+                    className="btn btn-warning btn-block btn-lg"
+                    onClick={() => {
+                      setCheckout(true);
+                    }}
+                  >
+                    Checkout
+                  </button>
+                )}
               </div>
             </div>
           </div>

@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory, Link } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import Search from "./Search";
+import { UserContext } from "../index";
 
 function NavBar({
   handleLogout,
@@ -11,9 +12,11 @@ function NavBar({
   product,
   searchTerm,
   onChangeSearch,
-  currentUser,
 }) {
   let history = useHistory();
+
+  const currentUser = useContext(UserContext);
+  console.log(currentUser);
 
   const toProfile = () => {
     history.push("/profile");
@@ -45,7 +48,7 @@ function NavBar({
         </span>
       </Navbar.Brand>
 
-      {isLoggedIn ? (
+      {currentUser ? (
         <div className="flex md:order-2">
           <Dropdown
             arrowIcon={false}

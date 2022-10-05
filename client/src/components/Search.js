@@ -3,6 +3,7 @@ function Search({ searchTerm, onChangeSearch }) {
   function handleChange(event) {
     onChangeSearch(event.target.value);
   }
+  console.log(searchTerm);
   return (
     <div className="container" id="search-container">
       <br />
@@ -18,20 +19,20 @@ function Search({ searchTerm, onChangeSearch }) {
                 <input
                   className="form-control form-control-lg form-control-borderless"
                   type="search"
-                  placeholder="Search topics or keywords"
+                  placeholder="Search..."
                   value={searchTerm}
                   onChange={handleChange}
                 />
               </div>
 
               <div className="col-auto">
-                <button
+                {/* <button
                   className="btn btn-lg btn-success"
                   type="submit"
                   id="search-button"
                 >
                   Go
-                </button>
+                </button> */}
               </div>
             </div>
           </form>

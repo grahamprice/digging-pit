@@ -15,7 +15,7 @@ function FooterHub() {
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
           <div>
             <Footer.Brand
-              href="https://flowbite.com"
+              href="https://thediggingpit.com"
               src="https://i.ebayimg.com/images/g/fNkAAOSwWHRhoud5/s-l140.webp"
               alt="Flowbite Logo"
               name="The Digging Pit"
@@ -32,8 +32,12 @@ function FooterHub() {
             <div>
               <Footer.Title title="Follow us" />
               <Footer.LinkGroup col={true}>
-                <Footer.Link href="#">instagram</Footer.Link>
-                <Footer.Link href="#">tiktok</Footer.Link>
+                <Footer.Link href="https://www.instagram.com/thediggingpit/">
+                  instagram
+                </Footer.Link>
+                <Footer.Link href="https://www.tiktok.com/@thediggingpit?lang=en">
+                  tiktok
+                </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
@@ -47,7 +51,7 @@ function FooterHub() {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
+          <Footer.Copyright href="#" by="GrahamPrice™" year={2022} />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon

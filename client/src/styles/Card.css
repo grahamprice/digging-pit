@@ -1,0 +1,17 @@
+
+#product-cards-container{
+  display: flex;
+    margin: 20px;
+    padding: 10px;
+    /* align-items: flex-start; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* align-content: space-between;
+    justify-content: center;
+} */}
+  
+
+  #product-card{
+    display: flex;
+    width: 400px
+  }

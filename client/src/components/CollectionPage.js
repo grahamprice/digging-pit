@@ -4,6 +4,7 @@ import FooterHub from "./FooterHub";
 // import { Card } from "flowbite-react";
 import ProductCard from "./ProductCard";
 // import Footer from "./Footer";
+import "../styles/Card.css";
 function CollectionPage({ products, setProducts, cart, setCart }) {
   let history = useHistory();
 

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  
+  # skip_before_action :index
+ 
     def index
             if params[:category_id]
               category = Category.find(params[:category_id])
@@ -29,7 +30,7 @@ class ProductsController < ApplicationController
     private
 
     def product_params
-      params.permit(:name, :description, :price, :image, :category_id, :user_id)
+      params.permit(:name, :description, :price, :image, :category_id, :user_id, :size, :poster)
     end
 
 end

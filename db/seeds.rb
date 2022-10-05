@@ -86,6 +86,7 @@ product15 = Product.create( name: "CHROME HEARTS STERLING SILVER CROSS CLUSTER C
     
     TO BE WORN ON THE RIGHT EAR", price: 1350 , category_id: 3, image: " https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/auto_image/cache=expiry:max/rotate=deg:exif/resize=height:700/output=quality:90/compress/koNRZGeuSOWNaG2lZ0As", user_id: 1)
     puts 'products seeded'
+puts 'products seeded'
 
     cart_item1 = CartItem.create(product_id: 10, user_id: 2, quantity: 1)
     cart_item1 = CartItem.create(product_id: 1, user_id: 3, quantity: 1)

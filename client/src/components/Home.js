@@ -11,15 +11,11 @@ function Home({ cart, setCart, products, setProducts, searchTerm }) {
       .then((data) => setProducts(data));
   }
 
-  // useEffect(() => {
-  //   fetch("/products")
-  //     .then((r) => r.json())
-  //     .then(setProducts);
-  // }, []);
-
-  // const productsToDisplay = products.filter((prod) =>
-  //   prod.name.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
+  useEffect(() => {
+    fetch("/products")
+      .then((r) => r.json())
+      .then(setProducts);
+  }, []);
 
   return (
     <div>
@@ -52,6 +48,7 @@ function Home({ cart, setCart, products, setProducts, searchTerm }) {
         />
       </div>
       {/* <FooterHub /> */}
+      <div id="paypal-button-container"></div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   #Cart items with users
 
- 
+ delete '/delete_cart', to: 'cart_items#destroy'
   post '/add_to_cart', to: 'cart_items#create'
   get '/show_cart', to: 'cart_items#user_cart_items'
 
@@ -27,9 +27,9 @@ Rails.application.routes.draw do
   #search results
 
   get '/search_results', to: "products#show_search"
-  #Men's section
-  get '/mens', to: "products#show"
-  get '/mens', to: "products#index"
+  # #Men's section
+  # get '/mens', to: "products#show"
+  # get '/mens', to: "products#index"
 
   #Women's Section
   # get '/womens', to: "products#show"
@@ -54,5 +54,6 @@ Rails.application.routes.draw do
 
   # #authorization route
   get "/auth", to: "users#admin_show"
+
 end
  

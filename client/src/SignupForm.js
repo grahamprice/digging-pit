@@ -7,6 +7,10 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
     email: "",
   });
   const history = useHistory();
+
+  const toLoginForm = () => {
+    history.push("/login");
+  };
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -81,8 +85,16 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
         value={formData.password}
         onChange={handleChange}
       />
-
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        onClick={() => {
+          alert(":)");
+        }}
+      >
+        Submit
+      </button>
+      {/* <p>Don't have an account? </p>
+      <button onClick={toLoginForm}>Click Here</button> */}
     </form>
   );
 };

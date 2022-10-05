@@ -7,8 +7,10 @@ function PostForm({ onAddPost, currentUser }) {
     description: "",
     price: "",
     image: "",
+    size: "",
     category_id: "",
     user_id: "",
+    poster: null,
   });
 
   function handleChange(event) {
@@ -18,27 +20,32 @@ function PostForm({ onAddPost, currentUser }) {
     });
   }
 
+  function handlePoster(e) {
+    e.preventDefault();
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.files[0],
+    });
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    // Semantic UI React's Form component handles the preventDefault automatically!
-    const newPost = {
-      ...formData,
-      user_id: currentUser.id,
-    };
-    // const newPosts = {
-    //   name: formData.name,
-    //   description: formData.description,
-    //   price: formData.price,
-    //   image: formData.image,
-    //   category_id: formData.category_id,
-    // };
 
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("description", formData.description);
+    data.append("price", formData.price);
+    data.append("image", formData.image);
+    data.append("size", formData.size);
+    data.append("category_id", formData.category_id);
+    data.append("user_id", currentUser.id);
+    data.append("poster", formData.poster);
     fetch("/products", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newPost),
+      // headers: {
+      //   "Content-Type": "application/json",
+      // },
+      body: data,
     })
       .then((r) => r.json())
       .then(onAddPost);
@@ -72,11 +79,17 @@ function PostForm({ onAddPost, currentUser }) {
           />
 
           <input
-            type="text"
-            label="image"
-            placeholder="image"
-            name="image"
-            value={formData.image}
+            type="file"
+            label="poster"
+            placeholder="poster"
+            name="poster"
+            onChange={handlePoster}
+          />
+          <input
+            label="size"
+            placeholder="size"
+            name="size"
+            value={formData.size}
             onChange={handleChange}
           />
           <input
@@ -87,7 +100,13 @@ function PostForm({ onAddPost, currentUser }) {
             onChange={handleChange}
           />
         </div>
-        <button>Submit</button>
+        <button
+          onClick={() => {
+            alert("Post Added :)");
+          }}
+        >
+          Submit
+        </button>
       </form>
     </div>
   );
