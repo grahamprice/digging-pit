@@ -7,11 +7,6 @@ function ProductCard({ product, setProducts, id }) {
   const [extraInfo, setExtraInfo] = useState(false);
   const [individualProduct, setIndividualProduct] = useState({});
 
-  // const [formData, setFormData] = useState({
-  //   product_id: "",
-  //   quantity: "",
-  // });
-
   function handleAddToCart() {
     fetch("/add_to_cart", {
       method: "POST",
@@ -24,8 +19,6 @@ function ProductCard({ product, setProducts, id }) {
       }),
     });
   }
-
-  // function handleDelete(id) {}
 
   function handleCardImageClick(event) {
     const prod_id = event.target.id;
@@ -44,7 +37,6 @@ function ProductCard({ product, setProducts, id }) {
       <div>
         <Card>
           <div>
-            {/* <ProductDetails product={product} id={id} /> */}
             <img
               id={id}
               src={product.image ? product.image : product.poster_url}
@@ -79,6 +71,7 @@ function ProductCard({ product, setProducts, id }) {
                   {product.size}
                 </p>
                 <button
+                  class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 shadow-lg shadow-green-500/50 dark:shadow-lg dark:shadow-green-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                   onClick={() => {
                     handleAddToCart();
                     alert("Added To Cart");

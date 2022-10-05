@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import CartItem from "./CartItem";
 import PayPal from "./PayPal";
+
+var formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
+
 function ShoppingCart({ onDeleteProduct, product }) {
   const [cart, setCart] = useState([]);
   const [checkout, setCheckout] = useState(false);
@@ -54,7 +60,7 @@ function ShoppingCart({ onDeleteProduct, product }) {
             </div>
             {cartItems}
             <div className="card">
-              <div className="total">Total: ${cartTotal}</div>
+              <div className="total">Total: {formatter.format(cartTotal)}</div>
               <br />
               <div className="card-body">
                 {checkout ? (
@@ -62,7 +68,7 @@ function ShoppingCart({ onDeleteProduct, product }) {
                 ) : (
                   <button
                     type="button"
-                    className="btn btn-warning btn-block btn-lg"
+                    className="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
                     onClick={() => {
                       setCheckout(true);
                     }}

@@ -7,7 +7,7 @@ function CartItem({ product, quantity }) {
         <div className="row d-flex justify-content-between align-items-center">
           <div className="col-md-2 col-lg-2 col-xl-2">
             <img
-              src={product.image}
+              src={product.image ? product.image : product.poster_url}
               className="img-fluid rounded-3"
               alt="Cotton T-shirt"
             />
