@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
 import Search from "./Search";
 import { UserContext } from "../index";

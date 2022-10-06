@@ -22,9 +22,9 @@ function CollectionPage({ products, setProducts, cart, setCart }) {
   });
 
   return (
-    <div>
+    <div className="flex flex-col items-center   border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
       <div
-        className="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-center"
+        className="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-center "
         id="product-cards-container"
         // onClick={toMensCard}
       >

@@ -33,15 +33,15 @@ function ProductCard({ product, setProducts, id }) {
   }
 
   return (
-    <div className="max-w-sm" id="product-card">
-      <div>
+    <div className="max-w-sm " id="product-card">
+      <div className="">
         <Card>
           <div>
             <img
               id={id}
               src={product.image ? product.image : product.poster_url}
               alt="mens-card-photo"
-              className="card-image"
+              className="card-image w-52 h-52"
               onClick={(event) => handleCardImageClick(event)}
             ></img>
             <h5

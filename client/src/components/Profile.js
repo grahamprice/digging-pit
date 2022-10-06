@@ -40,7 +40,7 @@ function Profile({}) {
               </Dropdown.Item>
             </Dropdown>
           </div>
-          <div className="flex flex-col items-center pb-10">
+          <div className="flex flex-col self-center items-center pb-10">
             <img
               className="mb-3 h-24 w-24 rounded-full shadow-lg"
               src="https://i.ebayimg.com/images/g/fNkAAOSwWHRhoud5/s-l140.webp"
