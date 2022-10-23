@@ -68,7 +68,7 @@ function NavBar({
               </span>
             </Dropdown.Header>
             <Dropdown.Item onClick={toHome}>Home</Dropdown.Item>
-            <Dropdown.Item onClick={toProfile}>Settings</Dropdown.Item>
+            <Dropdown.Item onClick={toProfile}>Profile</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
           </Dropdown>
