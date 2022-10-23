@@ -20,6 +20,8 @@ function Home({ cart, setCart, products, setProducts, searchTerm }) {
       .then(setProducts);
   }, []);
 
+  console.log(products);
+
   return (
     <div>
       <div className="h-56\\ sm:h-64 xl:h-80 2xl:h-96" id="carousel-container">

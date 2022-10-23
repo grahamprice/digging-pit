@@ -7,7 +7,7 @@ import ProductCard from "./ProductCard";
 import "../styles/Card.css";
 function CollectionPage({ products, setProducts, cart, setCart }) {
   let history = useHistory();
-
+  // console.log(products);
   const allProducts = products.map((product) => {
     return (
       <ProductCard

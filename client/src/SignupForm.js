@@ -1,52 +1,57 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
-  const [formData, setFormData] = useState({
-    username: "",
-    password: "",
-    email: "",
-  });
+const SignupForm = ({
+  handleSignUp,
+  password,
+  setPassword,
+  email,
+  setEmail,
+}) => {
+  // const [formData, setFormData] = useState({
+  //   username: "",
+  //   password: "",
+  //   email: "",
+  // });
   const history = useHistory();
 
   // const toLoginForm = () => {
   //   history.push("/login");
   // };
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleChange = (e) => {
+  //   setFormData({
+  //     ...formData,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(formData);
-    console.log("in hadnle submit");
+  // function handleSubmit(e) {
+  //   e.preventDefault();
+  //   console.log(formData);
 
-    fetch("/users", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    }).then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          setIsLoggedIn(true);
-          history.push("/");
-        });
-      } else {
-        res.json().then((errors) => {
-          console.error(errors);
-        });
-      }
-    });
-  }
+  //   fetch("/users", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(formData),
+  //   }).then((res) => {
+  //     if (res.ok) {
+  //       res.json().then((user) => {
+  //         setCurrentUser(user);
+  //         setIsLoggedIn(true);
+  //         history.push("/");
+  //       });
+  //     } else {
+  //       res.json().then((errors) => {
+  //         console.error(errors);
+  //       });
+  //     }
+  //   });
+  // }
 
   return (
     <div class="p-4 w-full max-w-sm bg-white rounded-lg border border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
-      <form onSubmit={handleSubmit} class="space-y-6">
+      <form class="space-y-6">
         <label
           htmlFor="first-name"
           class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
@@ -59,8 +64,8 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
           name="first-name"
           placeholder="First Name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-          value={formData.first_name}
-          onChange={handleChange}
+          // value={formData.first_name}
+          // onChange={handleChange}
         />
         <label
           htmlFor="last-name"
@@ -74,8 +79,8 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
           name="last-name"
           placeholder="Last Name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-          value={formData.last_name}
-          onChange={handleChange}
+          // value={formData.last_name}
+          // onChange={handleChange}
         />
         <label
           htmlFor="username"
@@ -89,8 +94,8 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
           name="username"
           placeholder="Username"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-          value={formData.username}
-          onChange={handleChange}
+          // value={formData.username}
+          // onChange={handleChange}
         />
         <label
           htmlFor="email"
@@ -105,8 +110,8 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
           placeholder="name@email.com"
           required
-          value={formData.email}
-          onChange={handleChange}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <label
           htmlFor="password"
@@ -121,11 +126,12 @@ const SignupForm = ({ setCurrentUser, setIsLoggedIn }) => {
           placeholder="••••••••"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
           required
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           type="submit"
+          onClick={handleSignUp}
           class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 shadow-lg shadow-purple-500/50 dark:shadow-lg dark:shadow-purple-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
         >
           Submit

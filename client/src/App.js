@@ -9,6 +9,11 @@ import Profile from "./components/Profile";
 import PostForm from "./components/PostForm";
 import ShoppingCart from "./components/ShoppingCart";
 import { UserContext } from "./index";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { auth } from "./firebase";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -19,20 +24,41 @@ function App() {
   const [productspost, setProductsPost] = useState([]);
   const [cart, setCart] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const history = useHistory();
 
-  useEffect(() => {
-    fetch("/me").then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          setIsLoggedIn(true);
-          setIsAuthenticated(true);
-        });
-      }
-    });
-  }, []);
+  // useEffect(() => {
+  //   fetch("/me").then((res) => {
+  //     if (res.ok) {
+  //       res.json().then((user) => {
+  //         setCurrentUser(user);
+  //         setIsLoggedIn(true);
+  //         setIsAuthenticated(true);
+  //       });
+  //     }
+  //   });
+  // }, []);
+
+  const handleSignUp = (e) => {
+    e.preventDefault();
+
+    createUserWithEmailAndPassword(auth, email, password)
+      .catch((error) => alert(error.message))
+      .then((authUser) => {
+        return authUser;
+      });
+  };
+
+  const handleLogin = (e) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredentials) => {
+        const user = userCredentials.user;
+        console.log("Logged in with:", user.email);
+      })
+      .catch((error) => alert(error.message));
+  };
 
   useEffect(() => {
     fetch("/categories")
@@ -41,8 +67,8 @@ function App() {
   }, []);
 
   // Authorization;
-  if (currentUser === null)
-    return <LoginForm setCurrentUser={setCurrentUser} />;
+  // if (currentUser === null)
+  //   return <LoginForm setCurrentUser={setCurrentUser} />;
 
   //Search Products
   const productsToDisplay = products.filter((prod) =>
@@ -50,12 +76,12 @@ function App() {
   );
 
   //Delete Products
-  function handleDeleteProduct(productToDelete) {
-    const updatedProduct = products.filter(
-      (prod) => prod.id !== productToDelete
-    );
-    setProducts(updatedProduct);
-  }
+  // function handleDeleteProduct(productToDelete) {
+  //   const updatedProduct = products.filter(
+  //     (prod) => prod.id !== productToDelete
+  //   );
+  //   setProducts(updatedProduct);
+  // }
 
   //Logout
   const handleLogout = () => {
@@ -77,7 +103,7 @@ function App() {
     <BrowserRouter>
       <UserContext.Provider value={currentUser}>
         <NavBar
-          handleLogout={handleLogout}
+          // handleLogout={handleLogout}
           isLoggedIn={isLoggedIn}
           setCart={setCart}
           cart={cart}
@@ -105,12 +131,22 @@ function App() {
                 setIsLoggedIn={setIsLoggedIn}
                 setCurrentUser={setCurrentUser}
                 handleLogout={handleLogout}
+                handleLogin={handleLogin}
+                password={password}
+                email={email}
+                setPassword={setPassword}
+                setEmail={setEmail}
               />
             </Route>
             <Route path="/signup">
               <SignupForm
                 setCurrentUser={setCurrentUser}
                 setIsLoggedIn={setIsLoggedIn}
+                handleSignUp={handleSignUp}
+                password={password}
+                email={email}
+                setPassword={setPassword}
+                setEmail={setEmail}
               />
             </Route>
             <Route path="/profile">
@@ -124,7 +160,7 @@ function App() {
             </Route>
             <Route path="/cart">
               <ShoppingCart
-                onDeleteProduct={handleDeleteProduct}
+                // onDeleteProduct={handleDeleteProduct}
                 product={products}
               />
             </Route>
