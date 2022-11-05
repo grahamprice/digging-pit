@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState, createContext, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "./App.css";
+
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+
+export const UserContext = createContext(null);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

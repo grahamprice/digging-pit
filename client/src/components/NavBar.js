@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useHistory } from "react-router-dom";
 import { Navbar, Dropdown, Avatar } from "flowbite-react";
-import ShoppingCart from "./ShoppingCart";
-function NavBar({ handleLogout, isLoggedIn }) {
+import Search from "./Search";
+import { UserContext } from "../index";
+
+function NavBar({
+  handleLogout,
+  isLoggedIn,
+  setCart,
+  cart,
+  product,
+  searchTerm,
+  onChangeSearch,
+}) {
   let history = useHistory();
+
+  const currentUser = useContext(UserContext);
+  console.log(currentUser);
 
   const toProfile = () => {
     history.push("/profile");
@@ -18,6 +31,9 @@ function NavBar({ handleLogout, isLoggedIn }) {
   const toLogIn = () => {
     history.push("/login");
   };
+  // function handleAddToCart() {
+  //   setCart([...cart, product]);
+  // }
 
   return (
     <Navbar fluid={true} rounded={true}>
@@ -31,7 +47,8 @@ function NavBar({ handleLogout, isLoggedIn }) {
           The Digging Pit
         </span>
       </Navbar.Brand>
-      {isLoggedIn ? (
+
+      {currentUser ? (
         <div className="flex md:order-2">
           <Dropdown
             arrowIcon={false}
@@ -46,12 +63,12 @@ function NavBar({ handleLogout, isLoggedIn }) {
           >
             <Dropdown.Header>
               <span className="block text-sm">Welcome</span>
-              {/* <span className="block truncate text-sm font-medium">
-                {currentUser.email}
-              </span> */}
+              <span className="block truncate text-sm font-medium">
+                {currentUser.username}
+              </span>
             </Dropdown.Header>
             <Dropdown.Item onClick={toHome}>Home</Dropdown.Item>
-            <Dropdown.Item onClick={toProfile}>Settings</Dropdown.Item>
+            <Dropdown.Item onClick={toProfile}>Profile</Dropdown.Item>
             <Dropdown.Divider />
             <Dropdown.Item onClick={handleLogout}>Sign out</Dropdown.Item>
           </Dropdown>
@@ -83,12 +100,18 @@ function NavBar({ handleLogout, isLoggedIn }) {
         </div>
       )}
       <Navbar.Collapse>
-        <Navbar.Link href="/">Home</Navbar.Link>
-        {/* <Navbar.Link href="/shop">Shop</Navbar.Link>
-        <Navbar.Link href="/sell">Sell</Navbar.Link>
-        <Navbar.Link href="/contact">Contact</Navbar.Link> */}
+        <Navbar href="/search_results">
+          <Search searchTerm={searchTerm} onChangeSearch={onChangeSearch} />
+        </Navbar>
+        {/* <Navbar.Link href="/" id="nav-home-link">
+          Home
+        </Navbar.Link> */}
+
+        <Navbar.Link id="cart-button-nav" href="/cart">
+          Cart
+        </Navbar.Link>
+        {/* <Navbar.Link href="/contact"></Navbar.Link> */}
       </Navbar.Collapse>
-      {/* <ShoppingCart /> */}
     </Navbar>
   );
 }

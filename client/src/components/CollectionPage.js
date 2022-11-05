@@ -1,30 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import FooterHub from "./FooterHub";
 // import { Card } from "flowbite-react";
 import ProductCard from "./ProductCard";
-
-function CollectionPage({ products, setProducts }) {
+// import Footer from "./Footer";
+import "../styles/Card.css";
+function CollectionPage({ products, setProducts, cart, setCart }) {
   let history = useHistory();
   // console.log(products);
-
   const allProducts = products.map((product) => {
-    console.log(product);
     return (
       <ProductCard
         id={product.id}
         product={product}
         key={product.id}
         setProducts={setProducts}
+        cart={cart}
+        setCart={setCart}
       />
     );
   });
 
   return (
-    <div
-      className="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-center"
-      // onClick={toMensCard}
-    >
-      {allProducts}
+    <div className="flex flex-col items-center   border-gray-200 shadow-md sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700">
+      <div
+        className="grid grid-flow-row-dense grid-cols-3 grid-rows-3 justify-center "
+        id="product-cards-container"
+        // onClick={toMensCard}
+      >
+        {allProducts}
+      </div>
+      <FooterHub />
     </div>
   );
 }

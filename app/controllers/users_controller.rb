@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-
-    # def show
-    #     current_user = User.find(session[:user_id])
-    #     render json: current_user
-    # end
+    skip_before_action :authorized, only: :create
+    def admin_show
+        current_user = User.find(session[:user_id])
+        render json: current_user
+    end
 
 
     def show
